@@ -1,0 +1,477 @@
+
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deadpool Universe</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <a href="#home" class="logo">DEAD<span>POOL</span></a>
+    <nav>
+        <a href="#home">Главная</a>
+        <a href="#about">О герое</a>
+        <a href="#gallery">Фильмы</a>
+        <a href="#memes">Шутки</a>
+    </nav>
+</header>
+
+<section class="hero" id="home">
+    <div class="hero-content">
+        <p class="subtitle">WELCOME TO MY WORLD</p>
+        <h1>HEY, I'M <span>DEADPOOL!</span></h1>
+        <p>Немного безумия, много сарказма и никакой скуки.</p>
+        <a href="#about" class="main-button">УЗНАТЬ БОЛЬШЕ</a>
+    </div>
+    <div class="hero-decoration">01</div>
+</section>
+
+<section class="about" id="about">
+    <p class="section-label">THE LEGEND</p>
+    <h2>WHO IS <span>DEADPOOL?</span></h2>
+
+    <div class="about-content">
+        <div class="about-text">
+            <p>
+                Дэдпул — Уэйд Уилсон, необычный антигерой Marvel.
+                Он обладает ускоренной регенерацией, невероятной
+                выносливостью и совершенно безумным чувством юмора.
+            </p>
+            <p>
+                Он любит шутить, нарушать четвёртую стену
+                и превращать любую ситуацию в комедию.
+            </p>
+            <p>
+                Его главные особенности — сарказм,
+                непредсказуемость и любовь к хаосу.
+            </p>
+        </div>
+        <div class="quote">
+            <span>“</span>
+            Maximum effort!
+            <small>— DEADPOOL</small>
+        </div>
+    </div>
+</section>
+
+<section class="gallery" id="gallery">
+    <p class="section-label">MOVIE COLLECTION</p>
+    <h2>MY <span>GALLERY</span></h2>
+
+    <div class="gallery-grid">
+
+        <div class="gallery-card">
+            <img src="https://www.impawards.com/2016/posters/deadpool.jpg"
+                 alt="Постер Дэдпул 2016">
+            <h3>DEADPOOL</h3>
+            <p>2016</p>
+        </div>
+
+        <div class="gallery-card">
+            <img src="https://www.impawards.com/2018/posters/deadpool_two.jpg"
+                 alt="Постер Дэдпул 2">
+            <h3>DEADPOOL 2</h3>
+            <p>2018</p>
+        </div>
+
+        <div class="gallery-card">
+            <img src="https://image.tmdb.org/t/p/w342/8cdWjvZQUExUUTzyp4t6EDMubfO.jpg"
+                 alt="Дэдпул и Росомаха">
+            <h3>DEADPOOL & WOLVERINE</h3>
+            <p>2024</p>
+        </div>
+
+    </div>
+</section>
+
+<section class="memes" id="memes">
+    <p class="section-label">THE FUNNY SIDE</p>
+    <h2>MEME <span>ZONE</span></h2>
+    <p id="meme-text">Дэдпул сегодня в хорошем настроении. Наверное.</p>
+    <button onclick="newMeme()">ЕЩЁ ШУТКУ!</button>
+</section>
+
+<footer>
+    <a href="#home" class="logo">DEAD<span>POOL</span></a>
+    <p>DEADPOOL UNIVERSE © 2026</p>
+    <p>Made with ❤️ and a little chaos.</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
+
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background: #101010;
+    color: white;
+}
+
+/* HEADER */
+
+header {
+    height: 75px;
+    padding: 0 8%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: rgba(10,10,10,0.96);
+    border-bottom: 1px solid #292929;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo {
+    color: white;
+    font-size: 23px;
+    font-weight: 900;
+    text-decoration: none;
+    letter-spacing: 2px;
+}
+
+.logo span, h1 span, h2 span {
+    color: #ed3030;
+}
+
+nav {
+    display: flex;
+    gap: 30px;
+}
+
+nav a {
+    color: #ddd;
+    text-decoration: none;
+    font-size: 13px;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: #ed3030;
+}
+
+/* HERO */
+
+.hero {
+    min-height: 590px;
+    padding: 100px 10%;
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+
+    background:
+        radial-gradient(ellipse at 85% 45%, rgba(190,20,30,0.3), transparent 45%),
+        linear-gradient(120deg, #080808 20%, #241010 65%, #090909);
+}
+
+.hero::after {
+    content: "DEADPOOL";
+    position: absolute;
+    right: -30px;
+    bottom: -35px;
+    font-size: clamp(80px, 15vw, 200px);
+    font-weight: 900;
+    color: rgba(255,255,255,0.035);
+    pointer-events: none;
+}
+
+.hero-content {
+    max-width: 650px;
+    z-index: 2;
+    animation: appear 1s ease;
+}
+
+.subtitle, .section-label {
+    color: #ed3030;
+    letter-spacing: 5px;
+    font-size: 11px;
+    font-weight: 800;
+    margin-bottom: 20px;
+}
+
+.hero h1 {
+    font-size: clamp(40px, 7vw, 76px);
+    font-weight: 900;
+    line-height: 1.1;
+    margin-bottom: 20px;
+}
+
+.hero-content > p:not(.subtitle) {
+    color: #bbb;
+    line-height: 1.8;
+    margin-bottom: 35px;
+}
+
+.main-button {
+    display: inline-block;
+    padding: 15px 28px;
+    background: #ed3030;
+    color: white;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 800;
+    border-radius: 4px;
+    transition: 0.3s;
+}
+
+.main-button:hover {
+    background: white;
+    color: #ed3030;
+    transform: translateY(-4px);
+}
+
+.hero-decoration {
+    position: absolute;
+    right: 12%;
+    top: 35%;
+    color: rgba(237,48,48,0.12);
+    font-size: 180px;
+    font-weight: 900;
+}
+
+/* ABOUT */
+
+.about {
+    padding: 100px 12%;
+    background: #151515;
+}
+
+.about h2, .gallery h2, .memes h2 {
+    font-size: 36px;
+    margin-bottom: 35px;
+}
+
+.about-content {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 50px;
+    align-items: center;
+}
+
+.about-text p {
+    color: #aaa;
+    line-height: 2;
+    margin-bottom: 15px;
+    font-size: 14px;
+}
+
+.quote {
+    padding: 35px;
+    background: linear-gradient(140deg, #351010, #1b1111);
+    border-left: 4px solid #ed3030;
+    font-size: 25px;
+    font-weight: 800;
+    border-radius: 8px;
+}
+
+.quote span {
+    display: block;
+    font-size: 60px;
+    color: #ed3030;
+}
+
+.quote small {
+    display: block;
+    color: #999;
+    font-size: 11px;
+    margin-top: 20px;
+    letter-spacing: 3px;
+}
+
+/* GALLERY */
+
+.gallery {
+    padding: 100px 8%;
+    text-align: center;
+    background:
+        radial-gradient(ellipse at center, #291010 0%, #111 65%);
+}
+
+.gallery-grid {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 25px;
+    margin-top: 40px;
+}
+
+.gallery-card {
+    width: 170px;
+    padding: 10px;
+    background: #1b1b1b;
+    border: 1px solid #333;
+    border-radius: 9px;
+    transition: 0.3s;
+}
+
+.gallery-card:hover {
+    transform: translateY(-10px);
+    border-color: #ed3030;
+    box-shadow: 0 10px 30px rgba(237,48,48,0.2);
+}
+
+.gallery-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.gallery-card h3 {
+    color: #ed3030;
+    font-size: 12px;
+    margin-top: 12px;
+}
+
+.gallery-card p {
+    color: #888;
+    font-size: 12px;
+    margin: 7px 0;
+}
+
+/* MEMES */
+
+.memes {
+    padding: 90px 20px;
+    text-align: center;
+    background: #171717;
+}
+
+.memes h2 {
+    margin-bottom: 20px;
+}
+
+.memes p:not(.section-label) {
+    color: #aaa;
+    margin-bottom: 25px;
+}
+
+.memes button {
+    padding: 14px 30px;
+    background: #ed3030;
+    border: none;
+    color: white;
+    font-weight: 800;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: 0.3s;
+}
+
+.memes button:hover {
+    background: white;
+    color: #ed3030;
+}
+
+/* FOOTER */
+
+footer {
+    padding: 35px 15px;
+    text-align: center;
+    background: #080808;
+    border-top: 1px solid #292929;
+}
+
+footer p {
+    color: #777;
+    font-size: 11px;
+    margin-top: 12px;
+}
+
+/* ANIMATION */
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* MOBILE */
+
+@media (max-width: 700px) {
+    header {
+        height: auto;
+        padding: 20px;
+        flex-direction: column;
+        gap: 18px;
+    }
+
+    nav {
+        gap: 14px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    nav a {
+        font-size: 11px;
+    }
+
+    .hero {
+        min-height: 480px;
+        padding: 70px 8%;
+    }
+
+    .hero-decoration {
+        font-size: 90px;
+        right: 5%;
+    }
+
+    .about, .gallery {
+        padding: 65px 7%;
+    }
+
+    .about-content {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+
+    .about h2, .gallery h2, .memes h2 {
+        font-size: 28px;
+    }
+}
+
+
+const memes = [
+    "Я не опаздываю. Я появляюсь эффектно.",
+    "План на сегодня: ничего не планировать.",
+    "Мой уровень сарказма сегодня превышает норму.",
+    "Я не странный. Я ограниченная серия.",
+    "Кто сказал, что супергерои должны быть серьёзными?",
+    "Сначала кофе. Потом спасение мира.",
+    "Я бы согласился, но мне лень.",
+    "Мой внутренний голос просит выходной."
+];
+
+function newMeme() {
+    const text = document.getElementById("meme-text");
+
+    let randomMeme = memes[
+        Math.floor(Math.random() * memes.length)
+    ];
+
+    text.style.opacity = 0;
+
+    setTimeout(() => {
+        text.textContent = randomMeme;
+        text.style.opacity = 1;
+    }, 200);
+}
